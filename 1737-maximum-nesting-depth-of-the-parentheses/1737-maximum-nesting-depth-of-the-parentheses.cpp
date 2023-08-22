@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int maxDepth(string s) {
+
+        stack<char> st; // Create a stack to keep track of opening parentheses
+        int ans = 0; // Initialize the answer to a very small value
+
+        for (auto c : s) {
+            if (c == '(') { // If an opening parenthesis is encountered
+                st.push(c); // Push onto the stack
+                ans = max(ans,(int)(st.size())); // Update max depth
+            } else if (c == ')') { // If a closing parenthesis is encountered
+                st.pop(); // Pop from the stack (closing a nested level)
+            }
+        }
+
+        return ans; // Return the maximum depth of nested parentheses
+    }
+};
