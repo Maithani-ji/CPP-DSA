@@ -1,32 +1,27 @@
 class Solution {
 public:
     int minSwaps(string s) {
+        int bal = 0;    // Count of balanced opening brackets.
+        int unbal = 0;  // Count of unbalanced closing brackets.
 
-        int bal=0;
-        int unbal=0;
-
-        for(auto c:s)
-        {
-            if(c=='[')
-            {
-                bal++;
-            }
-            else
-            {
-                if(bal>0)
-                {
-                    bal--;
-                }
-                else
-                {
-                    unbal++;
+        // Iterate through each character in the string.
+        for (auto c : s) {
+            if (c == '[') {
+                bal++;    // Increment the count of balanced opening brackets.
+            } else {
+                if (bal > 0) {
+                    bal--;    // Match an opening bracket for each closing bracket.
+                } else {
+                    unbal++;  // Increment the count of unbalanced closing brackets.
                 }
             }
         }
-        return (unbal+1)/2; // or return (bal+1)/2;    *** since number of [ and ] is same 
         
+        return (unbal + 1) / 2;// or return (bal+1)/2 *** since number of [ and ] is same if not in order. 
+          // Return the minimum number of swaps needed to balance brackets.
     }
 };
+
 // class Solution {
 // public:
 //     int minSwaps(string s) {
