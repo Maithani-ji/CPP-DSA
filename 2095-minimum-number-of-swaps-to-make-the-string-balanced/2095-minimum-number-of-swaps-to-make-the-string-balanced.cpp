@@ -1,3 +1,32 @@
+class Solution {
+public:
+    int minSwaps(string s) {
+
+        int bal=0;
+        int unbal=0;
+
+        for(auto c:s)
+        {
+            if(c=='[')
+            {
+                bal++;
+            }
+            else
+            {
+                if(bal>0)
+                {
+                    bal--;
+                }
+                else
+                {
+                    unbal++;
+                }
+            }
+        }
+        return (unbal+1)/2; // or return (bal+1)/2;    *** since number of [ and ] is same 
+        
+    }
+};
 // class Solution {
 // public:
 //     int minSwaps(string s) {
@@ -23,32 +52,32 @@
 //     }
 // };
          //                        SAME as ABOVE 
-class Solution {
-public:
-    int minSwaps(string s) {
-        stack<char> st;
-        int count = 0;
+// class Solution {
+// public:
+//     int minSwaps(string s) {
+//         stack<char> st;
+//         int count = 0;
 
-        // Iterate through each character in the string.
-        for (auto c : s) {
-            if (!st.empty() && st.top() == '[' && c == ']') {
-                st.pop(); // If a closing bracket matches an opening bracket, pop from the stack.
-            } else {
-                st.push(c); // Otherwise, push the character onto the stack.
-            }
-        }
+//         // Iterate through each character in the string.
+//         for (auto c : s) {
+//             if (!st.empty() && st.top() == '[' && c == ']') {
+//                 st.pop(); // If a closing bracket matches an opening bracket, pop from the stack.
+//             } else {
+//                 st.push(c); // Otherwise, push the character onto the stack.
+//             }
+//         }
 
-        // Iterate through the remaining characters in the stack to count the unbalanced brackets.
-        while (!st.empty()) {
-            if (st.top() == '[') {
-                count++; // Count unbalanced opening brackets.
-                st.pop();
-            } else {
-                st.pop(); // Pop other characters from the stack.
-            }
-        }
+//         // Iterate through the remaining characters in the stack to count the unbalanced brackets.
+//         while (!st.empty()) {
+//             if (st.top() == '[') {
+//                 count++; // Count unbalanced opening brackets.
+//                 st.pop();
+//             } else {
+//                 st.pop(); // Pop other characters from the stack.
+//             }
+//         }
 
-        // The number of swaps needed is half the count of unbalanced brackets, rounded up.
-        return (count + 1) / 2;
-    }
-};
+//         // The number of swaps needed is half the count of unbalanced brackets, rounded up.
+//         return (count + 1) / 2;
+//     }
+// };
