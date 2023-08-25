@@ -1,29 +1,28 @@
 class CustomStack {
-    int s;
-    int target;
-    vector<int>ans;
+    int target;          // Maximum allowed size of the stack
+    std::vector<int> ans; // Vector to store stack elements
+    
 public:
+    // Constructor initializes the maximum allowed size
     CustomStack(int maxSize) {
-        target=maxSize;
-        s=0;
+        target = maxSize;
     }
     
+    // Pushes an element onto the stack
     void push(int x) {
-        if(s<target)
-        {
-            s++;
-        ans.push_back(x);
+        if (ans.size() < target) { // Check if the stack is not full
+            ans.push_back(x);      // Push the element onto the vector
         }
     }
     
+    // Pops an element from the stack and returns it
     int pop() {
-         if (s == 0) {
-            return -1; // Handle empty stack
+        if (ans.size() == 0) {
+            return -1; // Handle empty stack, return -1
         }
-        int x=ans.back();
-        ans.pop_back();
-        s--;
-        return x;
+        int x = ans.back(); // Get the last element of the vector
+        ans.pop_back();     // Remove the last element
+        return x;           // Return the popped element
     }
     
     void increment(int k, int val) {
@@ -44,9 +43,9 @@ public:
         // }
         //                or
 
-          int limit = min(k, s); // Limit the increment range
+          int limit = min(k, (int)ans.size()); // // Determine the range to increment
         for (int i = 0; i < limit; i++) {
-            ans[i] += val;
+            ans[i] += val;// Increment each element within the limit with val
         }
         }
     
