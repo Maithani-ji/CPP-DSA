@@ -1,4 +1,3 @@
-#include <stack>
 
 class Solution {
 public:
@@ -31,3 +30,4 @@ public:
         return result; // Return the final result, which is the evaluation of the clumsy expression.
     }
 };
+
