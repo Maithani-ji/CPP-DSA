@@ -1,21 +1,21 @@
-class Solution {
+class Solution {//using generate all binary string ALGORITHM to solve to unique binary string prob
 public:
     vector<string> ans; // A vector to store the generated binary strings
 
     // Recursive function to generate binary strings
     void generate(vector<string> nums, int n, int i = 0, string s = "") {
         if (i == n) {
-            // If the generated binary string 's' is not in the 'nums' vector, add it to 'ans'
-            if (find(nums.begin(), nums.end(), s) == nums.end()) {
-                ans.push_back(s);
-                return;
+            // If the generated binary string 's' is not in the 'nums' vector, add it to 'ans' 
+
+            if (find(nums.begin(), nums.end(), s) == nums.end()) {// (diff)
+                ans.push_back(s); // (diff)
             }
             return;
            
         }
-        if(!ans.empty())
+        if(!ans.empty())// (diff)   for checking unique // if true just stop moving forward we found the missing 
         {
-            return;
+            return;//diff
         }
         // Recursively generate binary strings by appending '0' and '1' at the current position
         generate(nums, n, i + 1, s + "0");
