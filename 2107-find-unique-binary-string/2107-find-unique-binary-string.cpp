@@ -1,4 +1,26 @@
-class Solution {//using generate all binary string ALGORITHM to solve to unique binary string prob
+class Solution {// optimal 
+public:
+    string findDifferentBinaryString(vector<string>& nums) {
+        string res; // Initialize an empty result string to store the unique binary string.
+
+
+//*********** since given --> LENGTH of string in array IS SAME as LENGTH of ARRAY 
+     
+        for (int i = 0; i < nums.size(); i++) {
+
+// check each ith element at ith char & store inverted value of that posn in res --> thus gettinG --> UNIQUE STRING  // THIS WORKS only BECAUSE given--> lnegth of element and array is same 
+
+            res += nums[i][i] == '1' ? '0' : '1';
+
+        }
+
+
+        // The 'res' string now contains the unique binary string created by flipping bits at each position.
+        return res; // Return the unique binary string.
+    }
+};
+
+/*class Solution {//using generate all binary string ALGORITHM to solve to unique binary string prob
 public:
     vector<string> ans; // A vector to store the generated binary strings
 
@@ -33,3 +55,4 @@ public:
         return ans[0];
     }
 };
+*/
