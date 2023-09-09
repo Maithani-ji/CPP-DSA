@@ -38,3 +38,22 @@ public:
         return ans;  // Return the list of combinations that sum up to the target.
     }
 };
+
+// class Solution {
+// public:
+//     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+//         vector<vector<vector<int>>> dp(target + 1); // Initialize a 3D vector to store combinations for each target sum.
+//         dp[0].push_back({}); // Base case: There's one way to achieve a sum of 0, which is an empty combination.
+        
+//         for (int num : candidates) {
+//             for (int i = num; i <= target; ++i) {
+//                 for (vector<int> comb : dp[i - num]) {
+//                     comb.push_back(num);
+//                     dp[i].push_back(comb);
+//                 }
+//             }
+//         }
+        
+//         return dp[target]; // Return combinations that sum up to the target.
+//     }
+// };
