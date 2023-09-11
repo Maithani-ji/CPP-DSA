@@ -19,13 +19,13 @@ public:
         }
 
         a.push_back(cand[i]);  // Include the current candidate element in the combination.
-        sum += cand[i];        // Update the current sum.
+        // sum += cand[i];        // Update the current sum.
 
         // Recursive call to include the current candidate element again (since it can be used multiple times).
-        generate(a, cand, n, i, sum, t);// not using i+1, since i'th pos element can be used multiple times.
+        generate(a, cand, n, i, sum+cand[i], t);// not using i+1, since i'th pos element can be used multiple times.
 
         a.pop_back();  // Remove the last element from the combination.
-        sum -= cand[i];  // Update the sum after removing the last element.
+        // sum -= cand[i];  // Update the sum after removing the last element.
 
         // Recursive call to move to the next candidate element (i+1) and continue generating combinations.
         generate(a, cand, n, i + 1, sum, t);//i+1 used since , if prev pos element sum got >target, then remove it and move forward
