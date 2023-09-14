@@ -8,7 +8,7 @@ public:
         }
 
         // Check for out-of-bounds or mismatch conditions
-        if (j < 0 || k < 0 || j >= n || k >= m || word[i] != board[j][k]) {
+        if (j < 0 || k < 0 || j >= n || k >= m || word[i] != board[j][k] || board[j][k]=='.') {
             return false;
         }
 
