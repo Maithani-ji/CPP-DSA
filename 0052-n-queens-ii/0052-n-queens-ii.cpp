@@ -1,10 +1,10 @@
-class Solution {//optimised approach , not using another 3n time to check all left row,left upper and lower diagonals using hashing .
+class Solution {
 public:
-    int count=0; // Vector to store the solutions
+    int count = 0; // Variable to store the count of valid solutions
     
-    // Recursive function to solve N-Queens problem
+    // Recursive function to solve the N-Queens problem
     void solve(vector<string> board, int n, vector<int> left, vector<int> udiag, vector<int> ldiag, int col) {
-        // If we have placed all queens, add the current solution to 'ans'
+        // If all queens are placed, increment the solution count and return
         if (col == n) {
             count++;
             return;
@@ -22,7 +22,7 @@ public:
                 // Recursively proceed to the next column
                 solve(board, n, left, udiag, ldiag, col + 1);
 
-                // Backtrack by resetting the cell and availability vectors for exploring other possibilities
+                // Backtrack by resetting the cell and availability vectors to explore other possibilities
                 board[row][col] = '.';
                 left[row] = 0;
                 udiag[n - 1 + (col - row)] = 0;
@@ -31,16 +31,17 @@ public:
         }
     }
 
-     int totalNQueens(int n) {
+    int totalNQueens(int n) {
         vector<string> board(n, string(n, '.')); // Initialize the chessboard
         vector<int> left(n, 0); // Availability vector for columns
         vector<int> udiag(2 * n - 1, 0); // Availability vector for upper diagonals
         vector<int> ldiag(2 * n - 1, 0); // Availability vector for lower diagonals
 
         solve(board, n, left, udiag, ldiag, 0); // Start solving from the first column
-        return count; // Return all valid solutions
+        return count; // Return the count of valid solutions
     }
 };
+
 /*class Solution {// Brute force--> checking IS SAFE TO put queen , seperately. 
 public:
 int c=0;
