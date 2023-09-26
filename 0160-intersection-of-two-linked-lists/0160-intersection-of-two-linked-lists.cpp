@@ -6,44 +6,45 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-// class Solution {
-// public:
-//     ListNode *getIntersectionNode(ListNode *A, ListNode *B) {
+/* class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *A, ListNode *B) {
+        // Find the tail node of list A and make it cyclic
+        ListNode *tail = A;
+        while (tail->next) {
+            tail = tail->next;
+        }
+        tail->next = A;
 
-//         ListNode *tail=A;
-//         while(tail->next)
-//         {
-//             tail=tail->next;
+        // Initialize two pointers, fast and slow, in list B
+        ListNode *fast = B;
+        ListNode *slow = B;
 
-//         }
-//         tail->next=A;
+        // Detect the intersection point using Floyd's cycle detection algorithm
+        while (fast && fast->next) {
+            fast = fast->next->next;
+            slow = slow->next;
 
-//         ListNode *f=B;
-//         ListNode *s=B;
+            // When they meet, reset one pointer to the head of list B
+            if (fast == slow) {
+                slow = B;
+                while (fast != slow) {
+                    slow = slow->next;
+                    fast = fast->next;
+                }
+                // Restore the original state by breaking the cycle
+                tail->next = NULL;
+                return slow; // Return the intersection node
+            }
+        }
 
-//         while(f && f->next)
-//         {
-//             f=f->next->next;
-//             s=s->next;
+        // Restore the original state by breaking the cycle
+        tail->next = NULL;
 
-//             if(f==s)
-//             {
-//                 s=B;
-//                 while(f!=s)
-//                 {
-//                     s=s->next;
-//                     f=f->next;
-//                 }
-//                 tail->next=NULL;
-//                 return s;
-//             }
-
-//         }
-//         tail->next=NULL;
-// return NULL;
-        
-//     }
-// };
+        return NULL; // Return NULL if there's no intersection
+    }
+};
+*/
 /**
  * Definition for singly-linked list.
  * struct ListNode {
