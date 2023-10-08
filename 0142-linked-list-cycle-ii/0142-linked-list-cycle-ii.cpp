@@ -25,3 +25,20 @@ public:
         return nullptr; // No cycle found in the linked list
     }
 };
+/*class Solution {//brute force
+public:
+    ListNode *detectCycle(ListNode *head) {
+        unordered_set<ListNode*> visited;
+
+        ListNode* current = head;
+        while (current) {
+            if (visited.count(current)) {
+                return current; // Found a cycle
+            }
+            visited.insert(current);
+            current = current->next;
+        }
+
+        return nullptr; // No cycle found
+    }
+};*/
