@@ -9,15 +9,18 @@ public:
 
             long long k = static_cast<long long>(mid) * (mid + 1) / 2;  // Calculate the sum of the first 'mid' natural numbers.
 
-            if (k <= n) {
-                s = mid + 1;   // Adjust the start of the range if the sum is less than or equal to 'n'.
+            if (k == n) {
+                return mid;  // If the sum matches 'n,' return 'mid' as it represents the maximum number of full rows.
+            } else if (k < n) {
+                s = mid + 1;   // Adjust the start of the range if the sum is less than 'n.'
             } else {
-                e = mid - 1;   // Adjust the end of the range if the sum is greater than 'n'.
+                e = mid - 1;   // Adjust the end of the range if the sum is greater than 'n.'
             }
         }
-        return s - 1;  // Return 's - 1' as it represents the maximum number of full rows of coins that can be arranged within 'n' coins.
+        return e;  // Return 'e' as it represents the maximum number of full rows of coins that can be arranged within 'n' coins.
     }
 };
+
 // or just use 
 // class Solution {// mThematical formula after deriving it from  k*(k+1)/2 <= n
 // public:
