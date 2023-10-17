@@ -20,7 +20,7 @@ public:
     }
 };
 /*
-class Solution { Better Solution using 2 pointers O((n))
+class Solution { Better Solution using 2 pointers O((logn+k))
 public:
     vector<int> findClosestElements(vector<int>& arr, int k, int x) {
         int left = 0;                 // Initialize the left pointer.
